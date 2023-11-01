@@ -71,7 +71,7 @@ app.post('/save-score', async (req, res) => {
       });
   });
 
-app.listen(port, '10.0.0.216', () => {
+app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
