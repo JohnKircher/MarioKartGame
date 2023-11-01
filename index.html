@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mario Kart Track Randomizer</title>
+</head>
+<body>
+    <h1>Welcome to Mario Kart Track Randomizer</h1>
+    <!-- Create a button for track randomization -->
+    <button id="randomize-button">Randomize Track</button>
+
+    <!-- Display the randomly selected track here -->
+    <br>
+    <div id="selected-tracks"></div>
+
+    
+
+    <input type="number" id="teamKircherScore" placeholder="Team Kircher Score">
+    <input type="number" id="teamJMOscore" placeholder="Team JMO Score">
+    <input type="number" id="individualKircherScore" placeholder="Individual Kircher Score">
+    <input type="number" id="individualJMOscore" placeholder="Individual JMO Score">
+    <br><br>
+    <input type="password" id="password" placeholder="Password">
+    <button id="submit-button">Submit</button>
+
+    
+
+    <h2>Scoreboard</h2>
+    <table id="score-table" style="border-collapse: collapse; width: 100%;">
+        <thead>
+          <tr style="background-color: #f2f2f2;">
+            <th style="text-align: center; border: 1px solid #000; padding: 8px;">Team Kircher Score</th>
+            <th style="text-align: center; border: 1px solid #000; padding: 8px;">Team JMO Score</th>
+            <th style="text-align: center; border: 1px solid #000; padding: 8px;">Individual Kircher Score</th>
+            <th style="text-align: center; border: 1px solid #000; padding: 8px;">Individual JMO Score</th>
+            <th style="text-align: center; border: 1px solid #000; padding: 8px;">Date</th>
+          </tr>
+        </thead>
+        <tbody id="score-list"></tbody>
+      </table>
+      <br>
+<button id="refresh-button">Refresh Statistics</button>
+
+    <!-- Include your JavaScript file for client-side code -->
+    <script src="app.js"></script>
+
+    
+</body>
+</html>
