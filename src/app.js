@@ -252,11 +252,16 @@ document.getElementById('randomize-button').addEventListener('click', () => {
           });
         });
   
+        const teamKircherAvg = teamKircherTotal / data.length;
+        const teamJMOAvg = teamJMOTotal / data.length;
+        const individualKircherAvg = individualKircherTotal / data.length;
+        const individualJMOAvg = individualJMOTotal / data.length;
+  
         // Add the counts in parentheses to the column headers at the top
-        document.getElementById('score-table').rows[0].cells[0].textContent = `Team Kircher Score (${highlightedTeamKircher})`;
-        document.getElementById('score-table').rows[0].cells[1].textContent = `Team JMO Score (${highlightedTeamJMO})`;
-        document.getElementById('score-table').rows[0].cells[2].textContent = `Individual Kircher Score (${highlightedIndividualKircher})`;
-        document.getElementById('score-table').rows[0].cells[3].textContent = `Individual JMO Score (${highlightedIndividualJMO})`;
+        document.getElementById('score-table').rows[0].cells[0].innerHTML = `Team Kircher Score (${highlightedTeamKircher})<br>Avg: ${teamKircherAvg.toFixed(2)}`;
+        document.getElementById('score-table').rows[0].cells[1].innerHTML = `Team JMO Score (${highlightedTeamJMO})<br>Avg: ${teamJMOAvg.toFixed(2)}`;
+        document.getElementById('score-table').rows[0].cells[2].innerHTML = `Individual Kircher Score (${highlightedIndividualKircher})<br>Avg: ${individualKircherAvg.toFixed(2)}`;
+        document.getElementById('score-table').rows[0].cells[3].innerHTML = `Individual JMO Score (${highlightedIndividualJMO})<br>Avg: ${individualJMOAvg.toFixed(2)}`;
 
         // Create the totals row at the bottom
         const totalsRow = scoreList.insertRow(-1);
