@@ -49,15 +49,41 @@ function getRandomTracks(numberOfTracks) {
         "Tour Los Angeles Laps", "GBA Sunset Wilds", "Wii Koopa Cape", "Tour Vancouver Velocity"
     ];
 
+    const remainingTracks = ["Mario Kart Stadium", "Water Park", "Sweet Sweet Canyon", "Thwomp Ruins", 
+    "Mario Circuit", "Toad Harbor", "Twisted Mansion", "Shy Guy Falls", 
+    "Sunshine Airport", "Dolphin Shoals", "Electrodrome", "Mount Wario", 
+    "Cloudtop Cruise", "Bone-Dry Dunes", "Bowser's Castle", "Rainbow Road",
+    "Wii Moo Moo Meadows", "GBA Mario Circuit", "DS Cheep Cheep Beach", "N64 Toad's Turnpike",
+    "GCN Dry Dry Desert", "SNES Donut Plains 3", "N64 Royal Raceway", "3DS DK Jungle",
+    "DS Wario Stadium", "GCN Sherbet Land", "3DS Music Park", "N64 Yoshi Valley",
+    "DS Tick Tock Clock", "3DS Piranha Plant Slide", "Wii Grumble Volcano", "N64 Rainbow Road",
+    "GCN Yoshi Circuit", "Excite Bike Arena", "Dragon Driftway", "Mute City",
+    "Wii Wario's Gold Mine", "SNES Rainbow Road", "Ice Ice Outpost", "Hyrule Circuit",
+    "GCN Baby Park", "GBA Cheese Land", "Wild Woods", "Animal Crossing",  
+    "3DS Neo Bowser City", "GBA Ribbon Road", "Super Bell Subway", "Big Blue", 
+    "Tour Paris Promenade", "3DS Toad Circuit", "N64 Choco Mountain", "Wii Coconut Mall", 
+    "Tour Tokyo Blur", "DS Shroom Ridge", "GBA Sky Garden", "Ninja Hideaway", 
+    "Tour New York Minute", "SNES Mario Circuit 3", "N64 Kalimari Desert", "DS Waluigi Pinball", 
+    "Tour Sydney Sprint", "GBA Snow Land", "Wii Mushroom Gorge", "Sky-High Sundae", 
+    "Tour London Loop", "GBA Boo Lake", "3DS Rock Rock Mountain", "Wii Maple Treeway", 
+    "Tour Berlin Byways", "DS Peach Gardens", "Merry Mountain", "3DS Rainbow Road", 
+    "Tour Amsterdam Drift", "GBA Riverside Park", "Wii DK Summit", "Yoshi's Island", 
+    "Tour Bangkok Rush", "GCN Waluigi Stadium", "DS Mario Curcuit", "Tour Singapore Speedway", 
+    "Tour Athens Dash", "GCN Daisy Cruiser", "Wii Moonview Highway", "Squeaky Clean Sprint", 
+    "Tour Los Angeles Laps", "GBA Sunset Wilds", "Wii Koopa Cape", "Tour Vancouver Velocity"];
+
     const selectedTracks = new Set();
 
-    while (selectedTracks.size < numberOfTracks) {
-        const randomIndex = Math.floor(Math.random() * trackList.length);
-        const selectedTrack = trackList[randomIndex];
-        selectedTracks.add({
-          name: selectedTrack,
-          image: trackImages[selectedTrack], // Get the image filename
-        });
+    while (selectedTracks.size < numberOfTracks && remainingTracks.length > 0) {
+      const randomIndex = Math.floor(Math.random() * remainingTracks.length);
+      const selectedTrack = remainingTracks[randomIndex];
+      selectedTracks.add({
+        name: selectedTrack,
+        image: trackImages[selectedTrack], // Get the image filename
+      });
+
+      // Remove the selected track from the remainingTracks array
+      remainingTracks.splice(randomIndex, 1);
     }
 
     return Array.from(selectedTracks);
@@ -160,6 +186,9 @@ document.getElementById('randomize-button').addEventListener('click', () => {
     fetch('/get-scores')
       .then((response) => response.json())
       .then((data) => {
+
+        data.reverse();
+
         const scoreList = document.getElementById('score-list');
         scoreList.innerHTML = ''; // Clear the previous data
   
@@ -251,6 +280,9 @@ document.getElementById('randomize-button').addEventListener('click', () => {
     fetch('/get-scores')
       .then((response) => response.json())
       .then((data) => {
+
+        data.reverse();
+
         const scoreList = document.getElementById('score-list');
         scoreList.innerHTML = ''; // Clear the previous data
   
@@ -313,12 +345,19 @@ document.getElementById('randomize-button').addEventListener('click', () => {
             }
           });
         });
+
+        const teamKircherAvg = teamKircherTotal / data.length;
+        const teamJMOAvg = teamJMOTotal / data.length;
+        const individualKircherAvg = individualKircherTotal / data.length;
+        const individualJMOAvg = individualJMOTotal / data.length;
   
         // Add the counts in parentheses to the column headers at the top
-        document.getElementById('score-table').rows[0].cells[0].textContent = `Team Kircher Score (${highlightedTeamKircher})`;
-        document.getElementById('score-table').rows[0].cells[1].textContent = `Team JMO Score (${highlightedTeamJMO})`;
-        document.getElementById('score-table').rows[0].cells[2].textContent = `Individual Kircher Score (${highlightedIndividualKircher})`;
-        document.getElementById('score-table').rows[0].cells[3].textContent = `Individual JMO Score (${highlightedIndividualJMO})`;
+        document.getElementById('score-table').rows[0].cells[0].innerHTML = `Team Kircher Score (${highlightedTeamKircher})<br>Avg: ${teamKircherAvg.toFixed(2)}`;
+        document.getElementById('score-table').rows[0].cells[1].innerHTML = `Team JMO Score (${highlightedTeamJMO})<br>Avg: ${teamJMOAvg.toFixed(2)}`;
+        document.getElementById('score-table').rows[0].cells[2].innerHTML = `Individual Kircher Score (${highlightedIndividualKircher})<br>Avg: ${individualKircherAvg.toFixed(2)}`;
+        document.getElementById('score-table').rows[0].cells[3].innerHTML = `Individual JMO Score (${highlightedIndividualJMO})<br>Avg: ${individualJMOAvg.toFixed(2)}`;
+
+
 
         // Create the totals row at the bottom
         const totalsRow = scoreList.insertRow(-1);
