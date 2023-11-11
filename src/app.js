@@ -20,7 +20,9 @@ const trackImages = {
         "Tour Amsterdam Drift": "fruit.png", "GBA Riverside Park": "fruit.png", "Wii DK Summit": "fruit.png", "Yoshi's Island": "fruit.png", 
         "Tour Bangkok Rush": "boomerang.png", "GCN Waluigi Stadium": "boomerang.png", "DS Mario Curcuit": "boomerang.png", "Tour Singapore Speedway": "boomerang.png", 
         "Tour Athens Dash": "feather.png", "GCN Daisy Cruiser": "feather.png", "Wii Moonview Highway": "feather.png", "Squeaky Clean Sprint": "feather.png", 
-        "Tour Los Angeles Laps": "cherry.png", "GBA Sunset Wilds": "cherry.png", "Wii Koopa Cape": "cherry.png", "Tour Vancouver Velocity": "cherry.png"
+        "Tour Los Angeles Laps": "cherry.png", "GBA Sunset Wilds": "cherry.png", "Wii Koopa Cape": "cherry.png", "Tour Vancouver Velocity": "cherry.png",
+        "Tour Rome Avanti": "acorn.png", "GCN DK Mountain": "acorn.png", "Wii Daisy Circuit": "acorn.png", "Piranha Plant Cove": "acorn.png",
+        "Tour Madrid Drive": "spiny.png", "3DS Rosalina's Ice World": "spiny.png", "SNES Bowser Castle 3": "spiny.png", "Wii Rainbow Road": "spiny.png"
 };
 
 function getRandomTracks(numberOfTracks) {
@@ -46,7 +48,9 @@ function getRandomTracks(numberOfTracks) {
         "Tour Amsterdam Drift", "GBA Riverside Park", "Wii DK Summit", "Yoshi's Island", 
         "Tour Bangkok Rush", "GCN Waluigi Stadium", "DS Mario Curcuit", "Tour Singapore Speedway", 
         "Tour Athens Dash", "GCN Daisy Cruiser", "Wii Moonview Highway", "Squeaky Clean Sprint", 
-        "Tour Los Angeles Laps", "GBA Sunset Wilds", "Wii Koopa Cape", "Tour Vancouver Velocity"
+        "Tour Los Angeles Laps", "GBA Sunset Wilds", "Wii Koopa Cape", "Tour Vancouver Velocity",
+        "Tour Rome Avanti", "GCN DK Mountain", "Wii Daisy Circuit", "Piranha Plant Cove",
+        "Tour Madrid Drive", "3DS Rosalina's Ice World", "SNES Bowser Castle 3", "Wii Rainbow Road"
     ];
 
     const remainingTracks = ["Mario Kart Stadium", "Water Park", "Sweet Sweet Canyon", "Thwomp Ruins", 
@@ -70,7 +74,10 @@ function getRandomTracks(numberOfTracks) {
     "Tour Amsterdam Drift", "GBA Riverside Park", "Wii DK Summit", "Yoshi's Island", 
     "Tour Bangkok Rush", "GCN Waluigi Stadium", "DS Mario Curcuit", "Tour Singapore Speedway", 
     "Tour Athens Dash", "GCN Daisy Cruiser", "Wii Moonview Highway", "Squeaky Clean Sprint", 
-    "Tour Los Angeles Laps", "GBA Sunset Wilds", "Wii Koopa Cape", "Tour Vancouver Velocity"];
+    "Tour Los Angeles Laps", "GBA Sunset Wilds", "Wii Koopa Cape", "Tour Vancouver Velocity",
+    "Tour Rome Avanti", "GCN DK Mountain", "Wii Daisy Circuit", "Piranha Plant Cove",
+    "Tour Madrid Drive", "3DS Rosalina's Ice World", "SNES Bowser Castle 3", "Wii Rainbow Road"
+  ];
 
     const selectedTracks = new Set();
 
