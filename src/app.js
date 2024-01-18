@@ -246,12 +246,20 @@ document.getElementById('randomize-button').addEventListener('click', () => {
                     cell.style.backgroundColor = 'limegreen';
                     highlightedIndividualKircher++;
                   }
+                  // Check for equality and highlight blue
+                  if (score.individualKircherScore === score.individualJMOscore) {
+                    cell.style.backgroundColor = 'blue';
+                  }
                   break;
                 case 'individualJMOscore':
                   individualJMOTotal += score[property];
                   if (score.individualJMOscore > score.individualKircherScore) {
                     cell.style.backgroundColor = 'limegreen';
                     highlightedIndividualJMO++;
+                  }
+                  // Check for equality and highlight blue
+                  if (score.individualJMOscore === score.individualKircherScore) {
+                    cell.style.backgroundColor = 'blue';
                   }
                   break;
               }
@@ -345,12 +353,20 @@ document.getElementById('randomize-button').addEventListener('click', () => {
                     cell.style.backgroundColor = 'limegreen';
                     highlightedIndividualKircher++;
                   }
+                  // Check for equality and highlight blue
+                  if (score.individualKircherScore === score.individualJMOscore) {
+                    cell.style.backgroundColor = 'blue';
+                  }
                   break;
                 case 'individualJMOscore':
                   individualJMOTotal += score[property];
                   if (score.individualJMOscore > score.individualKircherScore) {
                     cell.style.backgroundColor = 'limegreen';
                     highlightedIndividualJMO++;
+                  }
+                  // Check for equality and highlight blue
+                  if (score.individualJMOscore === score.individualKircherScore) {
+                    cell.style.backgroundColor = 'blue';
                   }
                   break;
               }
